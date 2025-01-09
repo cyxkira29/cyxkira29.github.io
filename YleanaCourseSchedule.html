@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Yleaña Schedule</title>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: auto;
+            font-family: 'Montserrat', sans-serif;
+            overflow: auto;
+            background: linear-gradient(135deg, black 10%, navy 50%, red 90%);
+            animation: gradient 10s ease infinite;
+            background-size: 400% 400%;
+            background-attachment: fixed;
+            color: #fff;
+        }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .wave {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 1000% 1000% 0 0;
+            position: fixed;
+            width: 200%;
+            height: 10em;
+            animation: wave 15s linear infinite;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .wave:nth-of-type(2) {
+            bottom: -1.5em;
+            animation: wave 18s reverse infinite;
+        }
+        .wave:nth-of-type(3) {
+            bottom: -3em;
+            animation: wave 20s -2s reverse infinite;
+        }
+        @keyframes wave {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(-50%); }
+        }
+        h1 {
+            text-align: left;
+            padding: 15px 25px;
+            color: white;
+            font-size: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            padding: 15px;
+        }
+        th {
+            background-color: rgba(0, 128, 128, 0.8);
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        td {
+            font-size: 1rem;
+        }
+        td.subject {
+            background-color: rgba(0, 191, 255, 0.2);
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        td.subject:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        td.dots {
+            color: rgba(255, 255, 255, 0.6);
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            table {
+                font-size: 0.8rem;
+            }
+            th, td {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.5rem;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <h1>Schedule for Yleaña 2nd Term Course</h1>
+    <table>
+        <thead>
+            <tr>
+                <th style="width:125px">Time</th>
+                <th style="width:180px">Mon</th>
+                <th style="width:180px">Tue</th>
+                <th style="width:180px">Wed</th>
+                <th style="width:180px">Thu</th>
+                <th style="width:180px">Fri</th>
+                <th style="width:180px">Sat</th>
+                <th style="width:180px">Sun</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time" rowspan="2">8:15 AM - 9:30 AM</td>
+                <td class="dots">............................</td>
+                <td class="dots">............................</td>
+                <td class="subject">CS107<br>A221<br>R411</td>
+                <td class="dots">............................</td>
+                <td class="subject">IT103<br>A221<br>R411</td>
+                <td class="dots">............................</td>
+                <td class="dots">............................</td>
+            </tr>
+            <tr>
+                <td class="dots">............................</td>
+                <td class="dots">............................</td>
+                <td class="subject">CS107<br>A221<br>R411</td>
+                <td class="dots">............................</td>
+                <td class="subject">IT103<br>A221<br>R411</td>
+                <td class="dots">............................</td>
+                <td class="dots">............................</td>
+            </tr>
+            <tr>
+                <td class="time">10:45 AM - 12:00 PM</td>
+                <td class="dots">............................</td>
+                <td class="dots">............................</td>
+                <td class="subject">CS122<br>A221<br>R502</td>
+                <td class="dots">............................</td>
+                <td class="subject">CS124<br>A221<br>R504</td>
+                <td class="dots">............................</td>
+                <td class="dots">............................</td>
+            </tr>
+            <tr>
+                <td class="time">1:15 PM</td>
+                <td class="dots">............................</td>
+                <td class="subject">HUM039<br>A221<br>V406</td>
+                <td class="dots">............................</td>
+                <td class="subject">HUM039<br>A221<br>V406</td>
+                <td class="dots">............................</td>
+                <td class="subject">HUM039<br>A221<br>V406</td>
+                <td class="dots">............................</td>
+            </tr>
+            <tr>
+                <td class="time">2:30 PM</td>
+                <td class="subject">CS107L<br>A221<br>R602</td>
+                <td class="subject">SS086<br>A221<br>V406</td>
+                <td class="dots">............................</td>
+                <td class="subject">IT103L<br>A221<br>R604</td>
+                <td class="dots">............................</td>
+                <td class="subject">SS086<br>A221<br>V406</td>
+                <td class="dots">............................</td>
+            </tr>
+            <tr>
+                <td class="time">3:45 PM - 5:00 PM</td>
+                <td class="subject">CS107L<br>A221<br>R602</td>
+                <td class="dots">............................</td>
+                <td class="dots">............................</td>
+                <td class="subject">IT103L<br>A221<br>R604</td>
+                <td class="dots">............................</td>
+                <td class="dots">............................</td>
+                <td class="dots">............................</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
