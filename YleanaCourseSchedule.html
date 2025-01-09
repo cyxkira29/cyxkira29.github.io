@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Yleaña Schedule</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+            /* General Page Styling */
+            body {
+                margin: 0;
+                font-family: 'Montserrat', sans-serif;
+                overflow: hidden;
+                background: radial-gradient(circle at center, #000428, #004e92, #191970);
+                animation: galaxyScroll 40s ease infinite;
+                background-size: 200% 200%;
+                color: white;
+            }
+
+            @keyframes galaxyScroll {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            /* Parallax Stars */
+            .stars {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: transparent;
+                background-image: radial-gradient(white 1px, transparent 1px);
+                background-size: 5px 5px;
+                animation: starsParallax 60s linear infinite;
+                z-index: -3;
+            }
+
+            @keyframes starsParallax {
+                0% {
+                    transform: translateY(0);
+                }
+                100% {
+                    transform: translateY(-500px);
+                }
+            }
+
+            /* Animated Moon Orbit */
+            .moon {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background: radial-gradient(circle, #fefefe 60%, #e3e1e1 90%);
+                border-radius: 50%;
+                box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.5);
+                top: 50px;
+                left: calc(50% - 50px);
+                animation: moonOrbit 15s linear infinite;
+                z-index: -2;
+            }
+
+            @keyframes moonOrbit {
+                0% {
+                    transform: translate(0, 0);
+                }
+                50% {
+                    transform: translate(-200px, 100px);
+                }
+                100% {
+                    transform: translate(0, 0);
+                }
+            }
+
+            /* Drizzle Animation */
+            .rain {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1));
+                background-size: 1px 20px;
+                animation: drizzle 1s linear infinite;
+                z-index: -1;
+            }
+
+            @keyframes drizzle {
+                0% {
+                    background-position: 0 0;
+                }
+                100% {
+                    background-position: 0 20px;
+                }
+            }
+
+            /* Page Title */
+            h1 {
+                text-align: center;
+                padding: 20px;
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: 1px;
+                z-index: 1;
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(0, 128, 255, 0.8);
+            }
+
+            /* Schedule Table */
+            table {
+                width: 90%;
+                margin: 20px auto;
+                border-collapse: collapse;
+                background: rgba(0, 0, 0, 0.6);
+                backdrop-filter: blur(10px);
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+                z-index: 1;
+                overflow: hidden;
+            }
+
+            th {
+                padding: 15px;
+                text-align: center;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: #fff;
+                background: linear-gradient(to right, #30cfd0, #330867);
+                animation: gradientScroll 6s infinite linear;
+            }
+
+            @keyframes gradientScroll {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            td {
+                padding: 15px;
+                text-align: center;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                color: #fff;
+                transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            }
+
+            td.subject {
+                background-color: rgba(30, 144, 255, 0.7);
+                font-weight: bold;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(30, 144, 255, 0.8);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            td.subject:hover {
+                transform: scale(1.1);
+                box-shadow: 0 10px 20px rgba(30, 144, 255, 0.7);
+                background-color: rgba(72, 61, 139, 0.9);
+            }
+
+            td.time {
+                background: rgba(255, 255, 255, 0.1);
+                text-transform: uppercase;
+                font-weight: bold;
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="stars"></div>
+        <div class="moon"></div>
+        <div class="rain"></div>
+        <h1>A221 Schedule for Yleaña 2nd Term Course</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                    <th>Sun</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="time" rowspan="2">8:15 AM - 9:30 AM</td>
+                    <td class="dots">............................</td>
+                    <td class="dots">............................</td>
+                    <td class="subject">CS107<br>A221<br>R411</td>
+                    <td class="dots">............................</td>
+                    <td class="subject">IT103<br>A221<br>R411</td>
+                    <td class="dots">............................</td>
+                    <td class="dots">............................</td>
+                </tr>
+                <tr>
+                    <td class="dots">............................</td>
+                    <td class="dots">............................</td>
+                    <td class="subject">CS107<br>A221<br>R411</td>
+                    <td class="dots">............................</td>
+                    <td class="subject">IT103<br>A221<br>R411</td>
+                    <td class="dots">............................</td>
+                    <td class="dots">............................</td>
+                </tr>
+                <tr>
+                    <td class="time">10:45 AM - 12:00 PM</td>
+                    <td class="dots">............................</td>
+                    <td class="dots">............................</td>
+                    <td class="subject">CS122<br>A221<br>R502</td>
+                    <td class="dots">............................</td>
+                    <td class="subject">CS124<br>A221<br>R504</td>
+                    <td class="dots">............................</td>
+                    <td class="dots">............................</td>
+                </tr>
+                <tr>
+                    <td class="time">1:15 PM</td>
+                    <td class="dots">............................</td>
+                    <td class="subject">HUM039<br>A221<br>V406</td>
+                    <td class="dots">............................</td>
+                    <td class="subject">HUM039<br>A221<br>V406</td>
+                    <td class="dots">............................</td>
+                    <td class="subject">HUM039<br>A221<br>V406</td>
+                    <td class="dots">............................</td>
+                </tr>
+                <tr>
+                    <td class="time">2:30 PM</td>
+                    <td class="subject">CS107L<br>A221<br>R602</td>
+                    <td class="subject">SS086<br>A221<br>V406</td>
+                    <td class="dots">............................</td>
+                    <td class="subject">IT103L<br>A221<br>R604</td>
+                    <td class="dots">............................</td>
+                    <td class="subject">SS086<br>A221<br>V406</td>
+                    <td class="dots">............................</td>
+                </tr>
+                <tr>
+                    <td class="time">3:45 PM - 5:00 PM</td>
+                    <td class="subject">CS107L<br>A221<br>R602</td>
+                    <td class="dots">............................</td>
+                    <td class="dots">............................</td>
+                    <td class="subject">IT103L<br>A221<br>R604</td>
+                    <td class="dots">............................</td>
+                    <td class="dots">............................</td>
+                    <td class="dots">............................</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
