@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Explore PH Tours</title>
+    <link rel="icon" type="image/png" href="HtmlAsyncLogo.png">
+    <style>
+        nav {
+            text-align: center;
+            background-color: darkblue;
+        }
+        nav a {
+            color: white;
+            padding: 12px 18px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+        }
+        header {
+            font-size: 1.5em;
+            margin: 15px 0;
+            text-align: center;
+        }
+        .cta {
+            background-color: darkblue;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        .cta button {
+            background-color: white;
+            color: black;
+            padding: 16px 32px;
+            border: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .cta button:hover {
+            background-color: #004085;
+        }
+        .branches {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+        .branch {
+            background-color: #e9ecef;
+            padding: 20px;
+            border: 1px solid #ccc;
+            width: 30%;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: darkblue;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        footer a {
+            color: white;
+            margin: 0 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="HtmlAsyncBanner.png" width="100%" height="auto" alt="Explore PH Tours Banner">
+        <p>Your Gateway to the Philippines!</p>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Promos</a>
+        <a href="#">Contact</a>
+    </nav>
+    <main>
+        <section id="section1">
+            <h2>Our Services</h2>
+            <ul>
+                <li>Island Hopping Tours</li>
+                <li>Guided City Tours</li>
+                <li>Mountain Trekking Packages</li>
+                <li>Hotel and Transport Reservations</li>
+                <li>Customized Travel Itineraries</li>
+            </ul>
+        </section>
+        <section id="section2">
+            <h2>Special Promos</h2>
+            <ul>
+                <li>"3+1 Free" group packages</li>
+                <li>20% discount on bookings made at least a month in advance</li>
+                <li>Special weekend rates for island hopping in Cebu</li>
+            </ul>
+        </section>
+        <section id="section3">
+            <h2>Popular Packages:</h2>
+            <ul>
+                <li>Manila: Historic Intramuros Tour with Food Crawl</li>
+                <li>Cebu: Whale Shark Watching and Kawasan Falls Adventure</li>
+                <li>Davao: Mt. Apo Climbing Experience</li>
+            </ul>
+        </section>
+        <div class="cta">
+            <h3>Book Your Next Adventure Today!</h3>
+            <p>Explore the Philippines like never before with our exciting packages. Limited slots available for promo deals. Don't miss out!</p>
+            <button onclick="window.location.href='#'">Book Now</button>
+        </div>
+    </main>
+    <section class="branches">
+        <div class="branch">
+            <h3>Davao</h3>
+            <p>(+63) 345-6789</p>
+        </div>
+        <div class="branch">
+            <h3>Cebu</h3>
+            <p>(+63) 234-5678</p>
+        </div>
+        <div class="branch">
+            <h3>Manila</h3>
+            <p>(+63) 123-4567</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Explore PH Tours. All Rights Reserved.</p>
+        <p>
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </p>
+    </footer>
+</body>
+</html>
