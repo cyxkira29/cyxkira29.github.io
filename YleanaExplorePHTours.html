@@ -1,12 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore PH Tours</title>
     <link rel="icon" type="image/png" href="HtmlAsyncLogo.png">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1a1a2e;
+            color: #f5f6fa;
+            scroll-behavior: smooth;
+        }
+        header {
+            font-size: 1.5em;
+            margin: 15px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        header img {
+            width: 100%;
+            height: auto;
+            border-bottom: 5px solid #16213e;
+            animation: fadeIn 2s ease-out;
+        }
+        header p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #f5f6fa;
+            font-size: 2.5em;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 5px;
+            animation: textSlideIn 2s ease-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes textSlideIn {
+            0% { transform: translate(-50%, -60%); opacity: 0; }
+            100% { transform: translate(-50%, -50%); opacity: 1; }
+        }
         nav {
             text-align: center;
-            background-color: darkblue;
+            background: linear-gradient(135deg, #16213e, #0f3460);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
         }
         nav a {
             color: white;
@@ -14,66 +68,148 @@
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
+            transition: transform 0.3s ease, color 0.3s ease;
+            letter-spacing: 1px;
         }
-        header {
-            font-size: 1.5em;
-            margin: 15px 0;
+        nav a:hover {
+            transform: translateY(-5px);
+            color: #e94560;
+        }
+        main {
+            padding: 40px;
+            margin: 20px;
+        }
+        main section {
+            padding: 40px;
+            margin: 20px;
+            background: #0f3460;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            color: #f5f6fa;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+        main section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        main section:hover {
+            transform: translateY(-10px);
+        }
+        h2 {
             text-align: center;
+            margin-bottom: 20px;
+            animation: fadeInText 1.5s ease-in-out;
+        }
+        @keyframes fadeInText {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
         .cta {
-            background-color: darkblue;
+            background: linear-gradient(135deg, #16213e, #0f3460);
             color: white;
-            padding: 25px;
+            padding: 60px;
             text-align: center;
+            margin: 20px auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        .cta::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+            background-size: 50px 50px;
+            z-index: 1;
+            pointer-events: none;
+            animation: ctaAnimation 5s linear infinite;
+        }
+        @keyframes ctaAnimation {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+        .cta h3 {
+            position: relative;
+            z-index: 2;
+            animation: fadeInText 1s ease-in-out;
         }
         .cta button {
-            background-color: white;
-            color: black;
+            background-color: #e94560;
+            color: white;
             padding: 16px 32px;
             border: none;
             font-size: 1.2em;
             font-weight: bold;
             cursor: pointer;
             border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 2;
         }
         .cta button:hover {
-            background-color: #004085;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
         }
         .branches {
             display: flex;
             justify-content: space-around;
-            margin-top: 40px;
+            margin: 40px 20px;
         }
         .branch {
-            background-color: #e9ecef;
+            background: linear-gradient(135deg, #16213e, #0f3460);
             padding: 20px;
-            border: 1px solid #ccc;
+            border: 1px solid #0f3460;
             width: 30%;
             text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #f5f6fa;
+        }
+        .branch:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
         }
         footer {
-            background-color: darkblue;
+            background: linear-gradient(135deg, #16213e, #0f3460);
             color: white;
-            padding: 15px 0;
+            padding: 20px 0;
             text-align: center;
             font-size: 0.9em;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.5);
         }
         footer a {
             color: white;
             margin: 0 8px;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
         footer a:hover {
-            text-decoration: underline;
+            color: #e94560;
+        }
+
+        /* Animation for revealing sections */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <img src="HtmlAsyncBanner.png" width="100%" height="auto" alt="Explore PH Tours Banner">
+        <img src="HtmlAsyncBanner.png" alt="Explore PH Tours Banner">
         <p>Your Gateway to the Philippines!</p>
     </header>
     <nav>
@@ -83,7 +219,7 @@
         <a href="#">Contact</a>
     </nav>
     <main>
-        <section id="section1">
+        <section id="section1" class="reveal">
             <h2>Our Services</h2>
             <ul>
                 <li>Island Hopping Tours</li>
@@ -93,7 +229,7 @@
                 <li>Customized Travel Itineraries</li>
             </ul>
         </section>
-        <section id="section2">
+        <section id="section2" class="reveal">
             <h2>Special Promos</h2>
             <ul>
                 <li>"3+1 Free" group packages</li>
@@ -101,8 +237,8 @@
                 <li>Special weekend rates for island hopping in Cebu</li>
             </ul>
         </section>
-        <section id="section3">
-            <h2>Popular Packages:</h2>
+        <section id="section3" class="reveal">
+            <h2>Popular Packages</h2>
             <ul>
                 <li>Manila: Historic Intramuros Tour with Food Crawl</li>
                 <li>Cebu: Whale Shark Watching and Kawasan Falls Adventure</li>
@@ -137,5 +273,22 @@
             <a href="#">Instagram</a>
         </p>
     </footer>
+
+    <script>
+        // Reveal sections when they come into view
+        const sections = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        sections.forEach(section => observer.observe(section));
+    </script>
 </body>
 </html>
