@@ -4,20 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Web Page</title>
+    <link rel="stylesheet" href="main.css"> <!-- Linking the external CSS -->
 </head>
 <body>
-    <h1>Hi! I am John Cyrus Yleaña</h1>
-    <h1>HTML Tasks</h1>
-    <ol>
-        <li><a href="YleanaExplorePHTours.html" onclick="navigateWithFade(event, 'YleanaExplorePHTours.html')">Explore PH Tours</a></li>
-        <li><a href="YleanaCourseSchedule.html" onclick="navigateWithFade(event, 'YleanaCourseSchedule.html')">2nd Term Course Schedule</a></li>
-    </ol>
+    <div class="container">
+        <header>
+            <h1>Hi! John Cyrus M. Yleaña</h1>
+            <button id="toggleMode">Dark Mode</button>
+        </header>
 
-    <script>
-        function navigateWithFade(event, url) {
-            event.preventDefault();
-            window.location.href = url; // Redirect
-        }
-    </script>
+        <section>
+            <h2>HTML Tasks</h2>
+            <ol>
+                <li><a href="YleanaExplorePHTours.html">Explore PH Tours</a></li>
+                <li><a href="YleanaCourseSchedule.html">2nd Term Course Schedule</a></li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Digital Course Portfolio</h2>
+        </section>
+
+        <section>
+            <h2>CSS Tasks</h2>
+            <ol>
+                <li><a href="Yleana_W5_ACT4.html">Yleaña Week 5 CSS Activity 1-4</a></li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>JS Tasks</h2>
+            <ol>
+                <li><a href="Yleana_W5_ACT5.html">Yleaña Week 5 JS Activity 1-4</a></li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>IT103 Summative Part 3</h2>
+            <ol>
+                <li><a href="portfolio.html">Course Digital Portfolio</a></li>
+            </ol>
+        </section>
+    </div>
+
+    <script src="mainscript.js"></script>
 </body>
 </html>

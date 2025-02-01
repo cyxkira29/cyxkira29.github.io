@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+  }
+
+.box {
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    height: 80px;
+    width: 90px;
+    border: 20px solid yellow;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  
+  .red {
+    background-color: red;
+  }
+  
+  .blue {
+    background-color: blue;
+  }

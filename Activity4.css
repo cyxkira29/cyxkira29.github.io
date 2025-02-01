@@ -1,0 +1,176 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0a0f1e, #021526);
+    color: #cbd5e1;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    overflow-x: hidden;
+}
+
+/* Animated Background */
+@keyframes backgroundMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 100%; }
+}
+
+body {
+    background-size: 200% 200%;
+    animation: backgroundMove 15s linear infinite alternate;
+}
+
+/* Main container */
+.container {
+    width: 80%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(25, 32, 50, 0.9);
+    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
+    border-radius: 12px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Glowing Borders */
+.container:hover {
+    box-shadow: 0px 0px 25px rgba(0, 204, 255, 0.6);
+}
+
+/* Headings */
+h1, h2 {
+    color: #00aaff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Ordered List */
+ol {
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+li:hover {
+    background: rgba(0, 204, 255, 0.15);
+    transform: translateX(5px);
+    border-left: 4px solid #00aaff;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #00aaff;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #0094cc;
+    text-shadow: 0 0 12px #00aaff;
+}
+
+/* Buttons */
+button {
+    margin-top: 15px;
+    padding: 12px 18px;
+    border: none;
+    background-color: #0077cc;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0, 204, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button Glow Effect */
+button:hover {
+    background-color: #005fa3;
+    transform: scale(1.05);
+    box-shadow: 0 5px 25px rgba(0, 204, 255, 0.5);
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: linear-gradient(135deg, #000814, #021020);
+    color: #cbd5e1;
+}
+
+.dark-mode .container {
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 10px 25px rgba(0, 204, 255, 0.3);
+}
+
+.dark-mode h1, 
+.dark-mode h2 {
+    color: #00ccff;
+}
+
+.dark-mode a {
+    color: #00ccff;
+}
+
+.dark-mode a:hover {
+    color: #0099cc;
+}
+
+/* Smooth Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Add Hover Glow to List Items */
+li {
+    position: relative;
+}
+
+li::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    width: 5px;
+    height: 5px;
+    background-color: #00aaff;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease-in-out;
+}
+
+li:hover::before {
+    width: 10px;
+    height: 10px;
+}
+
+/* Floating Animation */
+@keyframes floating {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.container:hover {
+    animation: floating 3s infinite ease-in-out;
+}

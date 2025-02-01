@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+.box {
+    height: 60;
+    width: 1450px;
+    font-weight: bold;
+    font-size: 60px;
+  }
+  
+  .red {
+    background-color: red;
+  }
+  
+  .blue {
+    background-color: blue;
+  }

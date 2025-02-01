@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: lightgreen;
+    /* Blue background */
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px;
+}
+
+.box {
+    width: 150px;
+    height: 100px;
+    background-color: lightgreen;
+    border: 5px solid black;
+}
+
+.box.orange {
+    border-color: orange;
+}
+
+.box.green {
+    border-color: green;
+}
+
+.box.white {
+    background-color: white;
+    border-color: yellow;
+}

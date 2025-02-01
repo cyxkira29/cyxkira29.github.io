@@ -1,0 +1,133 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a1a;
+    color: #ddd;
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Main Container */
+.container {
+    width: 90%;
+    max-width: 600px;
+    padding: 25px;
+    background: #222;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Headings */
+h1, h2 {
+    color: #00aaff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* List */
+ol {
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    margin: 12px 0;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(0, 170, 255, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+li:hover {
+    background: rgba(0, 170, 255, 0.2);
+    transform: translateX(5px);
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #00aaff;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #0088cc;
+    text-decoration: underline;
+}
+
+/* Buttons */
+button {
+    margin-top: 20px;
+    padding: 12px 18px;
+    border: none;
+    background-color: #00aaff;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3);
+}
+
+button:hover {
+    background-color: #0088cc;
+    transform: scale(1.05);
+    box-shadow: 0 5px 25px rgba(0, 170, 255, 0.5);
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #111;
+    color: #fff;
+}
+
+.dark-mode .container {
+    background: #222;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode h1, 
+.dark-mode h2 {
+    color: #00c3ff;
+}
+
+.dark-mode a {
+    color: #00c3ff;
+}
+
+.dark-mode a:hover {
+    color: #00a1d1;
+}
+
+/* Smooth Fade-In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+}
