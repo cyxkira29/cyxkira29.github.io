@@ -1,81 +1,138 @@
-// Scroll Effects for Section Reveal
-const sections = document.querySelectorAll(".about, .contact, .skills, .projects");
+document.addEventListener("DOMContentLoaded", function () {
+    // Sections and Navbar Links
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav ul li a");
 
-const revealSection = () => {
-    sections.forEach((section) => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if (sectionTop < window.innerHeight - 100) {
-            section.classList.add("show");
-        }
-    });
-};
+    // 🟢 Smooth Scrolling for Navbar Links
+    navLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            event.preventDefault(); // Prevent default anchor jump
 
-window.addEventListener("scroll", revealSection);
-revealSection(); // Initial check
+            const targetId = link.getAttribute("href").substring(1);
+            const targetSection = document.getElementById(targetId);
 
-// Scroll to Top Function
-const scrollToTop = () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-    });
-};
-
-const scrollToTopBtn = document.getElementById("scrollToTop");
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 200) {
-        scrollToTopBtn.style.opacity = "1";
-    } else {
-        scrollToTopBtn.style.opacity = "0";
-    }
-});
-
-// Smooth Scroll for Navigation Links
-document.querySelectorAll("nav a").forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute("href").substring(1);
-        document.getElementById(targetId).scrollIntoView({
-            behavior: "smooth"
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80, // Adjust for fixed navbar
+                    behavior: "smooth",
+                });
+            }
         });
     });
-});
 
-// Particle.js Configuration for Multiple Sections
-const initParticles = (id) => {
-    particlesJS(id, {
-        particles: {
-            number: { value: 100, density: { enable: true, value_area: 800 } },
-            shape: { type: "circle", stroke: { width: 0, color: "#fff" } },
-            opacity: { value: 0.5, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
-            size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.1, sync: false } },
-            move: { enable: true, speed: 1.2, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
-        },
-        interactivity: {
-            events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }
-        },
-        retina_detect: true
+    // 🟢 Navbar Highlight on Scroll
+    window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.clientHeight;
+
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                current = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").substring(1) === current) {
+                link.classList.add("active");
+            }
+        });
     });
-};
 
-initParticles("particles-js");
-initParticles("about-particles");
-initParticles("skills-particles");
+    // 🟢 Scroll Effects for Section Reveal
+    const revealSections = document.querySelectorAll(".about, .contact, .skills, .projects, #questions");
+    const revealSection = () => {
+        revealSections.forEach((section) => {
+            const sectionTop = section.getBoundingClientRect().top;
+            if (sectionTop < window.innerHeight - 100) {
+                section.classList.add("show");
+            }
+        });
+    };
 
-// Scroll Progress Bar
-const progressBar = document.createElement("div");
-progressBar.style.position = "fixed";
-progressBar.style.top = "0";
-progressBar.style.left = "0";
-progressBar.style.width = "0";
-progressBar.style.height = "4px";
-progressBar.style.background = "#00ffcc";
-progressBar.style.zIndex = "1000";
-document.body.appendChild(progressBar);
+    window.addEventListener("scroll", revealSection);
+    revealSection(); // Initial check
 
-window.addEventListener("scroll", () => {
-    const scrollTop = document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrollPercentage = (scrollTop / scrollHeight) * 100;
-    progressBar.style.width = scrollPercentage + "%";
+    // 🟢 Scroll to Top Button
+    const scrollToTopBtn = document.getElementById("scrollToTop");
+
+    window.addEventListener("scroll", function () {
+        scrollToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+
+    scrollToTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // 🟢 Scroll Progress Bar
+    const progressBar = document.createElement("div");
+    progressBar.id = "progressBar";
+    document.body.appendChild(progressBar);
+
+    window.addEventListener("scroll", () => {
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        progressBar.style.width = (scrollTop / scrollHeight) * 100 + "%";
+    });
+
+    // 🟢 Clickable Project Boxes (Fixing Smooth Scrolling)
+    const projectBoxes = document.querySelectorAll(".project-box");
+
+    projectBoxes.forEach((box) => {
+        box.addEventListener("click", () => {
+            const projectId = box.getAttribute("data-target");
+            const targetProject = document.getElementById(projectId);
+
+            if (targetProject) {
+                window.scrollTo({
+                    top: targetProject.offsetTop - 80,
+                    behavior: "smooth",
+                });
+            }
+        });
+    });
+
+    // 🟢 Change Header Background on Scroll
+    window.addEventListener("scroll", () => {
+        document.querySelector("header").style.background =
+            window.scrollY > 50 ? "rgba(0, 0, 0, 1)" : "rgba(0, 0, 0, 0.8)";
+    });
+
+    // 🟢 Expand Questions on Hover
+    document.querySelectorAll(".question").forEach((question) => {
+        question.addEventListener("mouseenter", () => {
+            question.nextElementSibling.style.display = "block";
+        });
+        question.addEventListener("mouseleave", () => {
+            question.nextElementSibling.style.display = "none";
+        });
+    });
+
+    // 🟢 Function to Create Particle Effects
+    function createParticles(containerId) {
+        if (document.getElementById(containerId)) {
+            particlesJS(containerId, {
+                particles: {
+                    number: { value: 80 },
+                    color: { value: "#ffffff" },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5 },
+                    size: { value: 3 },
+                    move: { speed: 2 }
+                },
+                interactivity: {
+                    events: {
+                        onhover: { enable: true, mode: "repulse" } // Particles move when hovered over
+                    }
+                }
+            });
+        }
+    }
+
+    // Apply Particle Effect to Specific Sections
+    createParticles("particles-about");
+    createParticles("particles-skills");
+    createParticles("particles-projects");
+    createParticles("particles-questions");
 });

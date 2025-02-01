@@ -83,23 +83,3 @@ a:hover {
     color: #0088cc;
     text-decoration: underline;
 }
-
-/* Questions Section */
-#questions {
-    padding: 5px;
-    background: rgba(50, 50, 50, 0.8);
-    border-radius: 8px;
-}
-
-/* Question Styling */
-.question {
-    color: #ffcc00;
-    font-size: 13px;
-}
-
-/* Answer Styling */
-.answer {
-    color: #dcdcdc;
-    font-size: 13px;
-    margin-bottom: 15px;
-}
