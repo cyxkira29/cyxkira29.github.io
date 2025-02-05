@@ -19,7 +19,7 @@ body {
 #about, #skills, #projects, #questions {
     position: relative;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.8); /* Slight transparency */
+    background: rgba(0, 0, 0, 0.8); 
     padding: 10px 10px;
     border-radius: 20px;
     margin: 20px auto;
@@ -112,10 +112,10 @@ header a:hover {
 }
 
 .about img {
-    width: 300px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 20px; /* Optional: for rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 255, 204, 0.3); /* Optional: for a glowing effect */
+    width: 300px; 
+    height: auto; 
+    border-radius: 20px; 
+    box-shadow: 0 4px 10px rgba(0, 255, 204, 0.3); 
     transition: transform 0.3s ease-in-out;
 }
 
@@ -151,26 +151,31 @@ header a:hover {
     color: #00ffcc;
 }
 
-/* Projects */
-
+/* Projects Section */
 .projects {
     text-align: center;
-    padding: 20px 0;
+    padding: 30px 0;
     background: #222;
 }
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    justify-items: center;
+    margin: 0 auto;
 }
 
 .project-card {
     background: #444;
-    padding: 30px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease-in-out;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    color: #fff; 
 }
 
 .project-card:hover {
@@ -189,11 +194,38 @@ header a:hover {
     transition: all 0.3s ease-in-out;
 }
 
+/* Font Styling */
+.project-card h3 {
+    font-size: 1.5rem; 
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* Icon Styling */
+.project-card i {
+    font-size: 2rem; 
+    color: #00ffcc; 
+    margin-bottom: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Icon hover effect */
+.project-card i:hover {
+    transform: scale(1.2); 
+}
+
 .project-card a:hover {
     transform: translateY(-5px);
     box-shadow: 0px 8px 24px rgba(255, 255, 255, 0.2);
     border: 2px solid #00ffcc;
 }
+
 /* Following Questions Section */
 #questions {
     background: #181818;
@@ -276,9 +308,12 @@ header a:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    #questions {
-        padding: 40px 5%;
+@media (max-width: 480px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    .project-card {
+        padding: 15px;
     }
 }
 
