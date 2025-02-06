@@ -1,0 +1,116 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Full Page Background */
+body {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    background-color: black; /* Ensures dark mode */
+}
+
+/* Background Canvas */
+#smokeCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Main Container - Solid Dark Colors */
+.container {
+    background: #111;  /* Solid dark background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.6);
+    max-width: 600px;
+    width: 90%;
+}
+
+/* Header */
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+/* Highlighted Name */
+.highlight {
+    color: #ff4e50;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.highlight:hover {
+    color: #ffdd57;
+}
+
+/* Sections */
+section {
+    margin-top: 20px;
+}
+
+/* Section Headings */
+h2 {
+    font-size: 1.5rem;
+    color: #ffdd57;
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* Task List */
+ol {
+    list-style: none;
+    padding: 0;
+}
+
+/* Task List Items */
+li {
+    margin: 10px 0;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: rgb(0, 217, 255);
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #ffdd57;
+    text-shadow: 0px 0px 5px rgba(255, 221, 87, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    a {
+        font-size: 1rem;
+    }
+}

@@ -1,153 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Yleaña Schedule</title>
+    <title>Schedule for Blended Instructional Delivery Mode</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <style>
-        /* General Page Styling */
         body {
             margin: 0;
             font-family: 'VT323', monospace;
             background-color: black;
             color: #00FF41;
-            overflow: hidden;
-            text-align: center; /* Center align text */
+            text-align: center;
         }
 
-        /* Matrix Background */
-        .matrix {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: black;
-            overflow: hidden;
-            z-index: -3;
-        }
-
-        .matrix div {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #00FF41;
-            animation: fall linear infinite;
-            animation-duration: calc(1s * var(--i));
-        }
-
-        @keyframes fall {
-            0% {
-                transform: translateY(-100%);
-            }
-            100% {
-                transform: translateY(100vh);
-            }
-        }
-
-        /* Hacker Title */
+        /* Title */
         h1 {
-            padding: 20px;
-            font-size: 3rem;
-            text-shadow: 0 0 10px #00FF41, 0 0 20px #00FF41, 0 0 30px #00FF41;
-            margin-bottom: 20px;
-            display: inline-block;
+            font-size: 2rem;
+            text-shadow: 0 0 10px #00FF41;
+            margin: 20px;
         }
 
-        /* 3D Table Styling */
+        /* Table Styling */
         table {
-            width: 60%;
-            margin:30px auto;
+            width: 80%;
+            margin: 20px auto;
             border-collapse: collapse;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 255, 65, 0.2));
             border: 1px solid #00FF41;
-            border-radius: 15px;
-            box-shadow: 0 15px 30px rgba(0, 255, 65, 0.5), 0 5px 10px rgba(0, 255, 65, 0.7);
-            transform: perspective(1000px) rotateX(10deg) rotateY(10deg);
-            transition: all 0.3s ease-in-out;
-        }
-
-        table:hover {
-            transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
-            box-shadow: 0 15px 35px rgba(0, 255, 65, 0.7), 0 10px 20px rgba(0, 255, 65, 0.9);
-        }
-
-        @keyframes tableRotate {
-            0% {
-                transform: rotateX(20deg) rotateY(15deg);
-            }
-            50% {
-                transform: rotateX(25deg) rotateY(20deg);
-            }
-            100% {
-                transform: rotateX(20deg) rotateY(15deg);
-            }
         }
 
         th, td {
-            padding: 20px;
-            text-align: center;
+            padding: 10px;
             border: 1px solid #00FF41;
-            color: #00FF41;
-            text-shadow: 0 0 10px #00FF41;
-            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
         }
 
         th {
-            font-weight: bold;
-            text-transform: uppercase;
-            background: linear-gradient(135deg, rgba(0, 255, 65, 0.6), rgba(0, 0, 0, 0.6));
+            background: #005520;
         }
 
         td {
-            background: rgba(0, 0, 0, 0.6);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        td:hover {
-            transform: translateZ(10px) scale(1.1);
-            box-shadow: 0 0 20px #00FF41;
+            background: black;
         }
 
         td.subject {
-            background: rgba(0, 255, 65, 0.3);
-            border-radius: 5px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: #002b0f;
         }
 
-        td.subject:hover {
-            transform: translateZ(10px) scale(1.1);
-            box-shadow: 0 0 25px rgba(0, 255, 65, 0.7);
-        }
-
-        td.time {
-            background: rgba(255, 255, 255, 0.1);
-            text-transform: uppercase;
-            font-weight: bold;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
             table {
                 width: 100%;
-                font-size: 0.9em;
+                font-size: 0.9rem;
             }
 
             th, td {
-                padding: 10px;
+                padding: 8px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="matrix">
-        <!-- JavaScript will populate this with falling elements -->
-    </div>
-    <h1>A221 Schedule for Yleaña 2nd Term Course</h1>
+    <h1>My Schedule for 2nd Term Course</h1>
+    
     <table>
         <thead>
             <tr>
@@ -163,83 +77,88 @@
         </thead>
         <tbody>
             <tr>
-                <td>8:15 AM - 9:30 AM</td>
-                <td>.......</td>
-                <td>.......</td>
+                <td>8:15 AM</td>
+                <td></td>
                 <td class="subject">CS107<br>A221<br>R411</td>
-                <td>.......</td>
+                <td></td>
+                <td></td>
                 <td class="subject">IT103<br>A221<br>R411</td>
-                <td>.......</td>
-                <td>.......</td>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
-                <td>8:15 AM - 9:30 AM</td>
-                <td>.......</td>
-                <td>.......</td>
+                <td>9:30 AM</td>
+                <td></td>
                 <td class="subject">CS107<br>A221<br>R411</td>
-                <td>.......</td>
+                <td></td>
+                <td></td>
                 <td class="subject">IT103<br>A221<br>R411</td>
-                <td>.......</td>
-                <td>.......</td>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
-                <td>10:45 AM - 12:00 PM</td>
-                <td>.......</td>
-                <td>.......</td>
+                <td>10:45 AM</td>
+                <td></td>
+                <td></td>
                 <td class="subject">CS122<br>A221<br>R502</td>
-                <td>.......</td>
+                <td></td>
                 <td class="subject">CS124<br>A221<br>R504</td>
-                <td>.......</td>
-                <td>.......</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>12:00 PM</td>
+                <td></td>
+                <td></td>
+                <td class="subject">CS122<br>A221<br>R502</td>
+                <td></td>
+                <td class="subject">CS124<br>A221<br>R504</td>
+                <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td>1:15 PM</td>
-                <td>.......</td>
+                <td></td>
                 <td class="subject">HUM039<br>A221<br>V406</td>
-                <td>.......</td>
+                <td></td>
                 <td class="subject">HUM039<br>A221<br>V406</td>
-                <td>.......</td>
+                <td></td>
                 <td class="subject">HUM039<br>A221<br>V406</td>
-                <td>.......</td>
+                <td></td>
             </tr>
             <tr>
                 <td>2:30 PM</td>
                 <td class="subject">CS107L<br>A221<br>R602</td>
                 <td class="subject">SS086<br>A221<br>V406</td>
-                <td>.......</td>
+                <td></td>
                 <td class="subject">IT103L<br>A221<br>R604</td>
-                <td>.......</td>
+                <td></td>
                 <td class="subject">SS086<br>A221<br>V406</td>
-                <td>.......</td>
+                <td></td>
             </tr>
             <tr>
-                <td>3:45 PM - 5:00 PM</td>
+                <td>3:45 PM</td>
                 <td class="subject">CS107L<br>A221<br>R602</td>
-                <td>.......</td>
-                <td>.......</td>
+                <td></td>
+                <td></td>
                 <td class="subject">IT103L<br>A221<br>R604</td>
-                <td>.......</td>
-                <td>.......</td>
-                <td>.......</td>
+                <td></td>
+                <td class="subject">A221<br>V406</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>5:00 PM</td>
+                <td class="subject">CS107L<br>A221<br>R602</td>
+                <td></td>
+                <td></td>
+                <td class="subject">IT103L<br>A221<br>R604</td>
+                <td></td>
+                <td class="subject">A221<br>V406</td>
+                <td></td>
             </tr>
         </tbody>
     </table>
 
-    <script>
-        // JavaScript to create matrix-like falling effect
-        const matrix = document.querySelector('.matrix');
-        const createRainDrop = () => {
-            const rainDrop = document.createElement('div');
-            rainDrop.style.left = Math.random() * window.innerWidth + 'px';
-            rainDrop.style.animationDuration = Math.random() * 3 + 2 + 's';
-            rainDrop.style.animationDelay = Math.random() * 5 + 's';
-            matrix.appendChild(rainDrop);
-            setTimeout(() => {
-                matrix.removeChild(rainDrop);
-            }, 8000);
-        }
-
-        setInterval(createRainDrop, 100);
-    </script>
+    <p><strong>Note:</strong> Rooms that start with "V" are virtual rooms and are meant for online sessions.</p>
 </body>
 </html>

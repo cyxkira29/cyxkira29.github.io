@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Joke Generator</title>
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div class="stars"></div> <!-- Background Effect -->
 
     <div class="container">
         <h1>Random Joke Generator</h1>
@@ -19,12 +21,10 @@
         <button id="fetchButton" onclick="fetchJoke()">Get Joke</button>
 
         <div class="loading" id="loading">Fetching your joke...</div>
-
         <div class="joke" id="jokeArea">Click the button to get a joke!</div>
-
         <div class="error" id="errorMessage" style="display: none;">Failed to fetch joke, please try again!</div>
     </div>
 
-    <script src="script.js"></script> 
+    <script src="script.js"></script>
 </body>
 </html>
