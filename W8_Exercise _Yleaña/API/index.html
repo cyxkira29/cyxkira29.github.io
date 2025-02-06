@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Joke Generator</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <div class="container">
+        <h1>Random Joke Generator</h1>
+
+        <select id="categorySelect">
+            <option value="Programming">Programming</option>
+            <option value="Miscellaneous">Miscellaneous</option>
+        </select>
+
+        <button id="fetchButton" onclick="fetchJoke()">Get Joke</button>
+
+        <div class="loading" id="loading">Fetching your joke...</div>
+
+        <div class="joke" id="jokeArea">Click the button to get a joke!</div>
+
+        <div class="error" id="errorMessage" style="display: none;">Failed to fetch joke, please try again!</div>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>
