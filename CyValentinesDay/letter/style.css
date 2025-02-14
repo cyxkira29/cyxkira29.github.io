@@ -48,7 +48,7 @@ body {
     width: 270px;
     height: 200px;
     top: 5px;
-    left: 15px;
+    left: 20px;
     box-shadow: -5px -5px 100px rgba(0,0,0,0.4); 
     transition: top 0.5s ease-in-out;
 }
@@ -70,8 +70,8 @@ body {
     font-size: 28px;
     text-align: center;
     line-height: 25px;
-    top: 50px; /* Adjusted for better alignment */
-    left: 50%;
+    top: 30px; /* Adjusted for better alignment */
+    left: 40%;
     transform: translateX(-50%);
     color: #003049;
 }
@@ -82,8 +82,8 @@ body {
     display: inline-block;
     height: 30px;
     position: relative;
-    top: 120px; /* Adjusted */
-    left: 50%;
+    top: 110px; /* Adjusted */
+    left: 60%;
     transform: translateX(-50%) rotate(-45deg);
     width: 30px;
 }
