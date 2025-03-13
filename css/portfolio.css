@@ -152,51 +152,56 @@ header a:hover {
 }
 
 /* Projects Section */
-.projects {
-    text-align: center;
-    padding: 30px 0;
-    background: #222;
-}
-
+/* Project Grid */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    justify-items: center;
-    margin: 0 auto;
-}
-
-.project-card {
-    background: #444;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Adjusted min size */
+    gap: 20px;
+    justify-content: center; /* Center the grid */
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease-in-out;
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
-    color: #fff; 
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 24px rgba(255, 255, 255, 0.2);
-    border: 2px solid #00ffcc;
+/* Project Card */
+.project-card {
+    background: #222;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Ensure even spacing */
+    height:80%; /* Make all cards the same height */
 }
 
 .project-card a {
     text-decoration: none;
     color: inherit;
-    display: block;
-    padding: 30px;
-    border-radius: 10px;
-    background: #444;
-    transition: all 0.3s ease-in-out;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Font Styling */
+/* Icon */
+.project-card i {
+    font-size: 3rem;
+    color: #00ffcc;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.project-card:hover i {
+    transform: scale(1.2);
+}
+
+/* Text Styling */
 .project-card h3 {
-    font-size: 1.5rem; 
+    font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -204,7 +209,21 @@ header a:hover {
 .project-card p {
     font-size: 1rem;
     line-height: 1.5;
-    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+/* Hover Effects */
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 24px rgba(255, 255, 255, 0.2);
+    border: 2px solid #00ffcc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Icon Styling */
