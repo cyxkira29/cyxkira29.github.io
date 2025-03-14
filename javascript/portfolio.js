@@ -130,6 +130,34 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    document.addEventListener("DOMContentLoaded", function () {
+    const certificates = document.querySelectorAll(".certificate-box");
+    const modal = document.getElementById("pdfModal");
+    const pdfViewer = document.getElementById("pdfViewer");
+    const closeModal = document.querySelector(".close");
+
+    certificates.forEach((cert) => {
+        cert.addEventListener("click", () => {
+            const pdfUrl = cert.getAttribute("data-pdf");
+            pdfViewer.src = pdfUrl;
+            modal.style.display = "flex";
+        });
+    });
+
+    closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+        pdfViewer.src = ""; // Reset PDF viewer
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+            pdfViewer.src = ""; // Reset PDF viewer
+        }
+    });
+});
+
+
     // Apply Particle Effect to Specific Sections
     createParticles("particles-about");
     createParticles("particles-skills");
