@@ -6,10 +6,11 @@ require("dotenv").config();
 
 const newCustomerRoutes = require("./routes/new-customer");
 const allPawnedItemsRoutes = require("./routes/all-pawned-items");
+const forAuctionedItemsRoutes = require("./routes/for-auctioned-items");
 const addItemsRoutes = require("./routes/add-items");
-const deleteItemsRoutes = require("./routes/delete-items");
-const newUpdateRoutes = require('./routes/newUpdate');
-const redeemedItemsRoutes = require("./routes/redeem-items"); // ✅ Added redeemed items route
+const redeemedItemsRoutes = require("./routes/redeem-items"); 
+const fetchCustomersRoutes = require("./routes/fetch_customers"); 
+const deleteCustomerRoutes = require("./routes/delete_customer"); // ✅ Corrected route name
 
 const app = express();
 
@@ -38,11 +39,17 @@ app.get("/", (req, res) => {
 
 // ✅ API Routes
 app.use("/new-customer", newCustomerRoutes); 
-app.use("/update", newUpdateRoutes); 
 app.use("/all-pawned-items", allPawnedItemsRoutes);
+app.use("/for-auctioned-items", forAuctionedItemsRoutes);
 app.use("/add-items", addItemsRoutes);
-app.use("/redeem-items", redeemedItemsRoutes); // ✅ Added API route for redeemed items
-app.use("/delete-items", deleteItemsRoutes);
+app.use("/redeem-items", redeemedItemsRoutes); 
+app.use("/fetch-customers", fetchCustomersRoutes);
+app.use("/delete-customer", deleteCustomerRoutes); // ✅ Fixed to match frontend request
+
+// ✅ Handle Unknown Routes (404 Not Found)
+app.use((req, res) => {
+    res.status(404).json({ error: "⚠️ Route not found!" });
+});
 
 // ✅ Start Server
 const PORT = process.env.PORT || 3002;

@@ -28,20 +28,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Fetch customers by last name
-    document.getElementById('lastNameSearch').addEventListener('input', async function() {
+    document.getElementById('lastNameSearch').addEventListener('input', async function () {
         let lastName = this.value.trim();
         console.log("Searching for last name:", lastName);
-
+    
+        let dropdown = document.getElementById('firstNameDropdown');
+        dropdown.innerHTML = '<option value="">Select First Name</option>'; // Reset dropdown
+    
         if (lastName.length > 1) {
             try {
-                const response = await fetch(`http://localhost:3002/new-customer?last_name=${encodeURIComponent(lastName)}`);
+                const response = await fetch(`http://localhost:3002/fetch_customers?last_name=${encodeURIComponent(lastName)}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+    
                 const data = await response.json();
                 console.log("Parsed JSON:", data);
-
-                let dropdown = document.getElementById('firstNameDropdown');
-                dropdown.innerHTML = '<option value="">Select First Name</option>';
-
+    
                 if (data.length === 0) {
                     dropdown.innerHTML += '<option value="">No matches found</option>';
                 } else {
@@ -57,13 +60,14 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
-
-    // Update customer ID field
-    document.getElementById('firstNameDropdown').addEventListener('change', function() {
+    
+    // ✅ Update customer ID field when selecting a first name
+    document.getElementById('firstNameDropdown').addEventListener('change', function () {
         let selectedOption = this.options[this.selectedIndex];
         let customerIDField = document.getElementById('customerID');
-        customerIDField.textContent = selectedOption.value || "Customer ID";
+        customerIDField.value = selectedOption.value || ""; // Set value (not textContent)
     });
+    
 
     // Fetch items
     async function fetchItems() {

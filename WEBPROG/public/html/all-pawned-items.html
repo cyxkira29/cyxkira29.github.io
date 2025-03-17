@@ -61,6 +61,12 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-link bordered px-3">
+                        <a href="for-auctioned-items.html" class="nav-link px-3">
+                            <span class="me-2"><i class="bi bi-hammer"></i></span>
+                            <span>For Auctioned/Sale</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -165,7 +171,29 @@
       </div>
   </main>
 
-    <!-- Redeem Modal -->
+        <!-- Selection Modal -->
+        <div class="modal fade" id="selectionModal" tabindex="-1" aria-labelledby="selectionModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="selectionModalLabel">Choose an Action</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p>Do you want to redeem or renew this item?</p>
+                        <button id="confirmRedeemBtn" class="btn btn-success w-50">Redeem</button>
+                        <button id="confirmRenewBtn" class="btn btn-primary w-50 mt-2">Renew</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+<!-- Redeem Modal -->
 <div class="modal fade" id="RedeemModal" tabindex="-1" aria-labelledby="RedeemModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -179,7 +207,7 @@
                         <label class="form-label">Redeemed Value</label>
                         <input type="number" class="form-control" id="RedeemValue" required>
                     </div>
-                    <button type="submit" class="btn btn-success w-100">Redeem</button>
+                    <button type="submit" class="btn btn-success">Redeem</button>
                 </form>
             </div>
         </div>                
@@ -187,7 +215,74 @@
 </div>
 
 
-            
+
+
+
+                <!-- Renew Modal -->
+        <div class="modal fade" id="renewModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Renew Pawned Item</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="renewForm">
+                            <input type="hidden" id="renewPawnticketId"> <!-- Stores Pawnticket_ID -->
+        
+                            <div class="mb-3">
+                                <label class="form-label">New Principal Value</label>
+                                <input type="number" class="form-control" id="newPrincipal" required>
+                            </div>
+        
+                            <div class="mb-3">
+                                <label class="form-label">Maturity Date</label>
+                                <input type="date" class="form-control" id="maturityDate" required>
+                            </div>
+        
+                            <div class="mb-3">
+                                <label class="form-label">Expiration Date</label>
+                                <input type="date" class="form-control" id="expirationDate" required>
+                            </div>
+        
+                            <div class="mb-3">
+                                <label class="form-label">Penalty</label>
+                                <select class="form-select" id="penalty">
+                                    <option value="0">No Penalty</option>
+                                    <option value="Late Fee">Late Fee</option>
+                                    <option value="Overdue Charge">Overdue Charge</option>
+                                </select>
+                            </div>
+        
+                            <div class="mb-3">
+                                <label class="form-label">Date Paid</label>
+                                <input type="date" class="form-control" id="datePaid" required>
+                            </div>
+        
+                            <div class="mb-3">
+                                <label class="form-label">Amount Paid</label>
+                                <input type="number" id="amount_Paid" name="amount_paid" class="form-control" required>
+
+                            </div>
+        
+                            <div class="mb-3">
+                                <label class="form-label">Mode of Payment</label>
+                                <select class="form-select" id="paymentType">
+                                    <option value="Cash">Cash</option>
+                                    <option value="GCASH">GCASH</option>
+                                </select>
+                            </div>
+        
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-success">Confirm Renewal</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 <!-- Auction Modal -->
 <div class="modal fade" id="AuctionModal" tabindex="-1" aria-labelledby="AuctionModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -231,8 +326,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="../js/all-pawned-items.js"></script>
-<script src="../js/redeemed-items.js"></script>
-
 
            
     </body>

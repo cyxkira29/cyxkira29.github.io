@@ -63,6 +63,12 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-link bordered px-3">
+                        <a href="for-auctioned-items.html" class="nav-link px-3">
+                            <span class="me-2"><i class="bi bi-hammer"></i></span>
+                            <span>For Auctioned/Sale</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -158,61 +164,6 @@
             </div>
         </div>
     </main>
-    <div class="modal fade" id="editCustomerModal" tabindex="-1" aria-labelledby="editCustomerModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Edit Customer</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="editCustomerForm">
-                        <input type="hidden" id="editCustomerId">
-                        <div class="mb-3">
-                            <label>First Name</label>
-                            <input type="text" id="editFirstName" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Middle Initial</label>
-                            <input type="text" id="editMiddleInitial" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label>Last Name</label>
-                            <input type="text" id="editLastName" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Gender</label>
-                            <select id="editGender" class="form-select">
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label>Address</label>
-                            <input type="text" id="editAddress" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Birthday</label>
-                            <input type="date" id="editBirthday" class="form-control" required>
-                        </div>
-                        <div class="mb-3">
-                            <label>Nationality</label>
-                            <input type="text" id="editNationality" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label>Status</label>
-                            <select id="editStatus" class="form-select">
-                                <option value="Active">Active</option>
-                                <option value="Inactive">Inactive</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-success">Save Changes</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    
     
     <!-- JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
