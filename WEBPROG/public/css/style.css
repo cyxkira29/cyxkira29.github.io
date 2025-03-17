@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --offcanvas-width: 270px;
+  --topNavbarHeight: 56px;
+  --primary-color: #2E7D32; /* Green */
+  --hover-color: #1B5E20; /* Darker green */
+  --gradient-bg: linear-gradient(135deg, #2E7D32, #1B5E20);
+  --secondary-color: #A5D6A7; /* Soft green */
+  --transition-speed: 0.4s;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(circle at top left, #F6F9FF, #E3F2FD);
+  transition: background-color var(--transition-speed) ease-in-out;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Sidebar styles */
+.sidebar-nav {
+  width: var(--offcanvas-width) !important;
+  background: var(--gradient-bg) !important;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+  border-right: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar hover effect */
+.sidebar-nav:hover {
+  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Sidebar link styles */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 12px 18px;
+  font-size: 16px;
+  position: relative;
+  transition: transform var(--transition-speed), background-color var(--transition-speed);
+  border-radius: 6px;
+}
+
+/* Sidebar link glowing hover effect */
+.sidebar-link:hover, .sidebar-link.active {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Sidebar glowing edge effect */
+.sidebar-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: white;
+  transform: scaleY(0);
+  transition: transform var(--transition-speed) ease-in-out;
+}
+
+.sidebar-link:hover::before {
+  transform: scaleY(1);
+}
+
+/* Sidebar collapse icon animation */
+.sidebar-link .right-icon {
+  display: inline-flex;
+  transition: transform var(--transition-speed);
+}
+
+.sidebar-link[aria-expanded="true"] .right-icon {
+  transform: rotate(180deg);
+}
+
+/* Sidebar header */
+.offcanvas-header {
+  background: var(--gradient-bg);
+  font-size: 19px;
+  padding: 14px;
+  color: white;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Navbar styles */
+.navbar-brand {
+  text-transform: uppercase;
+  color: white !important;
+  letter-spacing: 1px;
+  transition: color var(--transition-speed);
+}
+
+.navbar-brand:hover {
+  color: var(--secondary-color) !important;
+}
+
+/* Responsive adjustments */
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+
+  .offcanvas-backdrop::before {
+    display: none;
+  }
+
+  main {
+    margin-left: var(--offcanvas-width);
+  }
+
+  .sidebar-nav {
+    transform: none !important;
+    visibility: visible !important;
+  }
+}
+
+/* Profile section */
+.profile-details li {
+  display: inline-block;
+  list-style: none;
+  font-size: 17px;
+  transition: transform var(--transition-speed);
+}
+
+.profile-details:hover {
+  transform: scale(1.05);
+}
+
+/* Breadcrumb */
+.breadcrumb-item {
+  font-size: 18px;
+  color: var(--primary-color);
+  transition: color var(--transition-speed);
+}
+
+.breadcrumb-item:hover {
+  color: var(--hover-color);
+  text-shadow: 0px 0px 10px rgba(46, 125, 50, 0.5);
+}
+
+/* Tabs */
+.nav-tabs .nav-link {
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.nav-tabs .nav-link.active {
+  background: var(--gradient-bg);
+  color: white;
+  border-radius: 8px 8px 0 0;
+}
+
+.nav-tabs .nav-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--hover-color);
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Remove transition when switching pages */
+.sidebar-nav, .sidebar-link, .offcanvas-header {
+  animation: none;
+}
+
+/* Button styles */
+.btn-primary {
+  background: var(--gradient-bg);
+  border: none;
+  transition: all var(--transition-speed);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button Ripple Effect */
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.2);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease-out;
+  border-radius: 50%;
+}
+
+.btn-primary:active::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-primary:hover {
+  background: var(--hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Floating hover effect for cards */
+.card {
+  transition: all var(--transition-speed) ease-in-out;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Gradient */
+.card-header {
+  background: var(--gradient-bg);
+  color: white;
+}
+
+    body {
+        background-color: #f8f9fa; /* Light gray background */
+    }
+    .card {
+        background-color: #ffffff; /* White card background */
+        border-radius: 10px; /* Rounded corners */
+    }
+    .nav-tabs .nav-link.active {
+        background-color: #2E7D32 !important; /* Active tab color */
+        color: #fff !important;
+    }
+    .table thead {
+        background-color: #1B5E20; /* Dark table header */
+        color: rgb(255, 255, 255);
+    }
+
